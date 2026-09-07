@@ -1,6 +1,7 @@
-
 body {
     background-color: #270130;
+    margin: 0;
+    overflow-x: hidden;
 }
 
 /* ==================== Navbar ==================== */
@@ -60,11 +61,19 @@ body {
 
 .container1 {
     display: flex;
-    flex-direction: row;
     align-items: center;
     gap: 7rem;
-    margin-left: 10rem;
-    margin-top: 4rem;
+
+    width: 100%;
+    max-width: 1100px;
+    margin: 4rem auto 0;
+    padding: 0 2rem;
+    box-sizing: border-box;
+}
+
+.text1 {
+    flex: 1;
+    min-width: 0;
 }
 
 .text1 p {
@@ -112,9 +121,12 @@ body {
     flex-direction: column;
     align-items: flex-start;
     gap: 1rem;
-    margin-left: 8%;
-    margin-right: 8%;
-    margin-top: 4rem;
+
+    width: 100%;
+    max-width: 1100px;
+    margin: 4rem auto 0;
+    padding: 0 2rem;
+    box-sizing: border-box;
 }
 
 .container3 {
@@ -124,6 +136,7 @@ body {
 }
 
 .text2 {
+    width: 100%;
     max-width: 50rem;
 }
 
@@ -151,6 +164,11 @@ body {
     margin-top: 0.5rem;
 }
 
+.icones a {
+    display: flex;
+    text-decoration: none;
+}
+
 .icones img {
     width: 3.2rem;
     height: 3.2rem;
@@ -162,39 +180,43 @@ body {
     filter: brightness(0) invert(1);
 }
 
-.icones a {
-    text-decoration: none;
-    display: flex;
-}
-
 .icones img:hover {
     transform: scale(1.15);
 }
 
 
 /* ==================== Projetos ==================== */
+
 .projetos {
+    width: 100%;
+    max-width: 1100px;
+
     margin: 4rem auto;
-    max-width: 80rem;
+    padding: 0 2rem;
+
+    box-sizing: border-box;
 }
 
 .cards {
     display: grid;
-    grid-template-columns: repeat(2, 25rem);
-    justify-content: center;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
     gap: 2rem;
     margin-top: 2rem;
 }
 
 .card {
-    background-color: #34023f;
-    border: 2px solid #a20ad1;
-    border-radius: 12px;
-
-    width: 18rem;
+    width: 100%;
+    min-width: 0;
     min-height: 16rem;
 
     padding: 1.5rem;
+    box-sizing: border-box;
+
+    background-color: #34023f;
+    border: 2px solid #a20ad1;
+    border-radius: 12px;
 
     display: flex;
     flex-direction: column;
@@ -211,7 +233,8 @@ body {
     color: #a20ad1;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1.5rem;
-    margin-top: 0;
+
+    margin: 0 0 1rem;
 }
 
 .card p {
@@ -219,9 +242,42 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 0.9rem;
     line-height: 1.6;
-    margin-bottom: 0.2rem;
 
+    margin: 0 0 0.2rem;
+
+    overflow-wrap: break-word;
 }
+
+
+/* ==================== Tecnologias ==================== */
+
+.tecnologias {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+
+    gap: 0.4rem;
+
+    margin: 0.5rem 0 1rem;
+}
+
+.tecnologias img {
+    width: 1.8rem;
+    height: 1.8rem;
+
+    object-fit: contain;
+
+    flex-shrink: 0;
+}
+
+.tecnologias img[alt="Next.js"],
+.tecnologias img[alt="Express"],
+.tecnologias img[alt="Ollama"] {
+    filter: brightness(0) invert(1);
+}
+
+
+/* ==================== Botão dos cards ==================== */
 
 .card a {
     margin-top: auto;
@@ -245,31 +301,17 @@ body {
 }
 
 
-/* Tecnologias dos cards */
+/* ==================== Tablet ==================== */
 
-.tecnologias {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.4rem;
-    margin: 1rem 0;
-}
+@media (max-width: 900px) {
 
-.tecnologias img {
-    width: 1.8rem;
-    height: 1.8rem;
-    object-fit: contain;
-}
+    .container1 {
+        gap: 3rem;
+    }
 
-.tecnologias img[alt="Ollama"] {
-    filter: brightness(0) invert(1);
-}
-
-
-
-.tecnologias img[alt="Next.js"],
-.tecnologias img[alt="Express"],
-.tecnologias img[alt="Ollama"] {
-    filter: brightness(0) invert(1);
+    .cards {
+        gap: 1.5rem;
+    }
 }
 
 
@@ -281,38 +323,36 @@ body {
 
     .container1 {
         flex-direction: column;
-        align-items: center;
-        margin-left: 0;
-        margin-right: 0;
+
         gap: 2rem;
+
+        margin-top: 2rem;
+        padding: 0 1rem;
+
+        text-align: center;
     }
 
     .text1 {
-        text-align: center;
-        margin: 0 1rem;
-    }
-
-    .foto1 {
-        max-width: 15rem;
+        width: 100%;
     }
 
     .text1 p {
         line-height: 1.5;
     }
 
+    .foto1 {
+        max-width: 15rem;
+    }
+
 
     /* Sobre */
 
     .container2 {
-        margin-left: 1rem;
-        margin-right: 1rem;
         margin-top: 2rem;
+        padding: 0 1rem;
     }
 
     .container3 {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
         gap: 0.8rem;
     }
 
@@ -335,13 +375,12 @@ body {
     }
 
 
-    /* Ícones das tecnologias e redes */
+    /* Ícones */
 
     .icones {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.6rem;
         width: 100%;
+        justify-content: flex-start;
+        gap: 0.6rem;
     }
 
     .icones img {
@@ -353,21 +392,22 @@ body {
     /* Projetos */
 
     .projetos {
-        margin: 2rem 1rem;
+        margin: 2rem auto;
+        padding: 0 1rem;
+    }
+
+    .title2 {
+        font-size: 1.7rem;
     }
 
     .cards {
-        justify-content: center;
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
     }
 
     .card {
         width: 100%;
-        max-width: 20rem;
-    }
-
-    .tecnologias img {
-        width: 1.8rem;
-        height: 1.8rem;
+        min-height: 16rem;
+        padding: 1.25rem;
     }
 }
-
